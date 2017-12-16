@@ -1,0 +1,4 @@
+  <div>Details for client: "{{this.client.clientName}}"</div>
+  <div *ngIf="!this.client.canDelete">Client is authenticated.</div>
+  <div *ngIf="this.client.canDelete">Redirect Url: {{this.client.redirectUrl}}<br>
+    <button (click)="authenticate();">Authorize</button></div>

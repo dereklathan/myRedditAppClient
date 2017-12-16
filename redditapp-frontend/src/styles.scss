@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('bootstrap.min.css');
+html {
+	min-height:100%;
+	position:relative;
+}
+body {
+	background: #666666;
+	font-family: 'Arial';
+	color: #fff;
+}
+
+.menu {
+	text-align:center;
+	display: inline;
+	a:link, a:visited {
+		color: #00FF00;
+	}
+	span {
+		padding: 5px
+	}
+}
+
+.menu-item {
+	div {
+		float:left;
+		display: inline;
+	}
+}
+
+.text-field {
+    float: right;
+}
+
+.text-field input {
+	float: right;
+}
+.text-field label {
+    margin-right: 10px;   
+}
+
+#reddit-user-form {
+	margin-top: 5px;
+	align: right;
+    width: 400px;
+    button {
+    	margin-left: 70px
+    }
+    span {
+    	align: right
+    }
+}

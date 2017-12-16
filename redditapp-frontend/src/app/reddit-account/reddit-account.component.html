@@ -1,0 +1,26 @@
+<div id="reddit-user-form">
+	<div class="text-field">
+		<label for="user">Account Name:</label>
+		<input id="user" type="text" [(ngModel)]="reddituser"/><br>
+	</div>
+	<div class="text-field">
+		<label for="pass">Password:</label>
+		<input id="pass" type="password" [(ngModel)]="redditpass"/><br>
+	</div>
+	<div class="text-field">
+		<label for="confirm">Confirm:</label>
+		<input id="confirm" type="password" [(ngModel)]="confirmpass"/><br>
+	    <span><button (click)="addUser()">Add</button></span><br>
+	    <span style="color: #CC0000 ; margin-left: 70px"> {{error}} </span><br>
+	</div>
+</div>
+
+<div align="left">
+	<ul>
+		<li *ngFor="let redditUser of results;"><div>{{redditUser.username}} - <a [routerLink]="['/redditaccounts/clients', redditUser.id]">Clients</a></div>
+			<div *ngIf="redditUser.canDelete && !redditUser.showConfirmDelete"><a (click)="toggleConfirmDelete(redditUser);">delete</a></div>
+			<div *ngIf="redditUser.showConfirmDelete">are you sure? <a (click)="deleteRedditUser(redditUser.id);" [routerLink]="['/redditaccounts/deleted']">yes</a> / <a (click)="toggleConfirmDelete(redditUser);">no</a></div>
+		</li>
+	</ul>
+</div>
+<div align="center"><router-outlet></router-outlet></div>

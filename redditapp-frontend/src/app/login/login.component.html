@@ -1,0 +1,14 @@
+<div id="reddit-user-form">
+	<div class="text-field">
+		<label for="user">Username:</label>
+		<input id="user" type="text" [(ngModel)]="user"/><br>
+	</div>
+	<div class="text-field">	
+		<label for="pass">Password:</label>
+		<input id="pass" type="password" [(ngModel)]="pass"/><br>
+	</div>
+	<div class="text-field">
+	    <span><button (click)="login()">Login</button></span><br>
+	    <span style="color: #CC0000 ; margin-left: 70px"> {{error}} </span><br>
+	</div>
+</div>

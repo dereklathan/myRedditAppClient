@@ -1,0 +1,24 @@
+<div style="border:1px solid black;">
+  <div>Clients for /u/{{redditUserName}}</div>
+<div *ngFor="let client of this.clientResponse;"><div>{{client.clientName}} - <a (click)="getClientDetail(client.id)">Detail</a>
+  <a *ngIf="client.canDelete && !client.showConfirmDelete" (click)="toggleConfirmDelete(client)">Delete</a><div *ngIf="client.showConfirmDelete">are you sure?
+    (<a (click)="deleteClient(client.id)">yes</a> / <a (click)="toggleConfirmDelete(client)">no</a>)</div></div></div>
+  <div *ngIf="showError">Error: {{error}}</div>
+  <div *ngIf="!showAddClient"><a (click)="toggleShowAddClient();">Add Client</a></div>
+  <div *ngIf="showAddClient" id="reddit-user-form">
+  	<div class="text-field">
+  		<label for="name">Client Name:</label>
+  		<input id="name" type="text" [(ngModel)]="clientName"/><br>
+  	</div>
+  	<div class="text-field">
+  		<label for="id">Client ID:</label>
+  		<input id="id" type="text" [(ngModel)]="clientId"/><br>
+  	</div>
+  	<div class="text-field">
+  		<label for="secret">Client Secret:</label>
+  		<input id="secret" type="text" [(ngModel)]="clientSecret"/><br>
+  	    <span><button (click)="addClient()">Add</button><button (click)="toggleShowAddClient();">Cancel</button></span><br>
+  	</div>
+  </div>
+
+</div>
