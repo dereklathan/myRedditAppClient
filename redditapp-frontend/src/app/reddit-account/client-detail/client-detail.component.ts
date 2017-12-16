@@ -41,9 +41,6 @@ export class ClientDetailComponent implements OnInit {
         .subscribe(
             data => {
               this.client = data['client'];
-              if (this.client.authUrl !== '') {
-
-              }
             },
           )
     });
@@ -52,6 +49,10 @@ export class ClientDetailComponent implements OnInit {
   authenticate() {
     window.open(this.client.authUrl);
     this.router.navigate(['/redditaccounts']);
+  }
+
+  goBack() {
+    this.router.navigate(['/redditaccounts/clients/' + this.client.redditUserId])
   }
 
 }
