@@ -17,9 +17,10 @@
 
 <div align="left">
 	<ul>
-		<li *ngFor="let redditUser of results;"><div>{{redditUser.username}} - <a [routerLink]="['/redditaccounts/clients', redditUser.id]">Clients</a></div>
-			<div *ngIf="redditUser.canDelete && !redditUser.showConfirmDelete"><a (click)="toggleConfirmDelete(redditUser);">delete</a></div>
-			<div *ngIf="redditUser.showConfirmDelete">are you sure? <a (click)="deleteRedditUser(redditUser.id);" [routerLink]="['/redditaccounts/deleted']">yes</a> / <a (click)="toggleConfirmDelete(redditUser);">no</a></div>
+		<li *ngFor="let redditUser of results;"><div>{{redditUser.username}} - <a [routerLink]="['/redditaccounts/clients', redditUser.id]">Clients</a>
+			<a *ngIf="redditUser.canDelete && !redditUser.showConfirmDelete" (click)="toggleConfirmDelete(redditUser);">Delete</a>
+			<div *ngIf="redditUser.showConfirmDelete">are you sure? (<a (click)="deleteRedditUser(redditUser.id);" [routerLink]="['/redditaccounts/deleted']">yes</a> / <a (click)="toggleConfirmDelete(redditUser);">no</a>)</div>
+		</div>
 		</li>
 	</ul>
 </div>

@@ -13,22 +13,20 @@ export class AuthGuardService implements CanActivate {
 
   canActivate(): Promise<boolean> {
     const accessToken = this._cookieService.get('accessToken');
-    let canNavigate = false;
     if (accessToken !== '') {
-          const headers = new HttpHeaders().append('Access-Token', accessToken);
-          return new Promise<boolean>((resolve, reject) => {
-            this.http.get('http://localhost:8080/redditapp-1.0-SNAPSHOT/rest/auth/validate', {headers: headers})
-              .toPromise().then(
-                data => {
-                  resolve(true);
-                },
-                error => {
-                  this.router.navigate(['login']);
-                  resolve(false);
-                }
-              )
+      const headers = new HttpHeaders().append('Access-Token', accessToken);
+      return new Promise<boolean>((resolve, reject) => {
+        this.http.get('http://localhost:8080/redditapp-1.0-SNAPSHOT/rest/auth/validate', {headers: headers})
+          .toPromise().then(
+            data => {
+              resolve(true);
+            },
+            error => {
+              this.router.navigate(['login']);
+              resolve(false);
             }
-          );
+          )
+      });
     } else {
       this.router.navigate(['login']);
       return new Promise<boolean>(function(resolve, reject) {

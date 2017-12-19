@@ -53,10 +53,6 @@ export class RedditAccountComponent implements OnInit {
       this.error = 'Username cannot be blank';
       return;
     }
-    if (this.redditpass === '') {
-      this.error = 'Password cannot be blank';
-      return;
-    }
     if (this.redditpass !== this.confirmpass) {
       this.error = 'Passwords do not match';
       return;

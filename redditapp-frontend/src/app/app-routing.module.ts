@@ -9,6 +9,8 @@ import { AuthGuardService } from './auth-guard.service';
 import { ClientListComponent } from './reddit-account/client-list/client-list.component';
 import { ClientDetailComponent } from './reddit-account/client-detail/client-detail.component';
 import { RedditAccountDeletedComponent } from './reddit-account/reddit-account-deleted/reddit-account-deleted.component'
+import { VoteComponent } from './vote/vote.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 const routes: Routes = [
@@ -20,6 +22,11 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'logout',
+    component: LogoutComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'redditaccounts',
@@ -41,6 +48,11 @@ const routes: Routes = [
         canActivate: [AuthGuardService]
       }
     ],
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'vote',
+    component: VoteComponent,
     canActivate: [AuthGuardService]
   },
   {

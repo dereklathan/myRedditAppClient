@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { RedditAccountModule } from './reddit-account/reddit-account.module';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { VoteModule } from './vote/vote.module';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
@@ -20,6 +22,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HomeComponent,
     LoginComponent,
     PageNotFoundComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HttpClientModule,
     FormsModule,
     CookieModule,
-    RedditAccountModule
+    RedditAccountModule,
+    VoteModule
   ],
   providers: [
     CookieService,
