@@ -12,18 +12,7 @@ export class VoteComponent implements OnInit {
   permaLink: string;
   error: string;
   headers: HttpHeaders;
-  response: {
-    threadLink: {
-      name: string,
-    },
-    comment: {
-      name: string,
-      body: string,
-
-    },
-    isComment: boolean,
-    error: string
-  }
+  response;
   constructor(private http: HttpClient, private _cookieService: CookieService, private router: Router) {
     this.permaLink = '';
     this.error = '';
