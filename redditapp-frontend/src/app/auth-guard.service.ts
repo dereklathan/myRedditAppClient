@@ -3,8 +3,6 @@ import { Router, Resolve, CanActivate } from '@angular/router';
 import { HttpClient, HttpHeaders, HttpHandler } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 
-
-
 @Injectable()
 export class AuthGuardService implements CanActivate {
 

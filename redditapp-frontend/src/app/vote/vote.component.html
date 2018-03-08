@@ -2,8 +2,18 @@
   <label for="permalink">Permalink:</label>
   <input id="permalink" type="text" [(ngModel)]="permaLink"/><br>
   <button (click)="getThing()">Get</button>
-  <p>{{error}}</p>
 </div>
-<div>
-  
+<div *ngIf="response !== undefined && response.error === undefined">
+  <input [(ngModel)]="response.score" id=voteSlider type="range" name="score" min="{{0 - response.scoreLimit}}" max="{{response.scoreLimit}}"/>
+  <input maxLength="4" type="text" size="3" readOnly="true" value={{response.score}}/>
+  <button (click)="submitVote()">Vote</button>
+  <br>
+  <a *ngIf="response.isComment">Comment from </a>
+  <a>{{response.threadLink.title}}</a>
+  <a *ngIf="response.isComment">: <br>
+    <div>{{response.comment.author}}: {{response.comment.body}}</div>
+  </a>
+</div>
+<div *ngIf="response !== undefined && response.error !== undefined">
+  <a style="color: #CC0000">{{"Error: " + response.error}}</a>
 </div>
