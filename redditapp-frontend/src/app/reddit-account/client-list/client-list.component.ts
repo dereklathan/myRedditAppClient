@@ -90,7 +90,7 @@ export class ClientListComponent implements OnInit {
 
   deleteClient(clientId: number) {
     this.showError = false;
-    this.http.get('http://localhost:8080/redditapp-1.0-SNAPSHOT/rest/clients/deleteclient?id=' + clientId, {headers: this.headers})
+    this.http.post('http://localhost:8080/redditapp-1.0-SNAPSHOT/rest/clients/deleteclient?id=' + clientId,'', {headers: this.headers})
       .subscribe(
         data => {
           if(data['error'] !== undefined) {
