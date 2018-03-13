@@ -85,7 +85,7 @@ export class RedditAccountComponent implements OnInit {
 
   deleteRedditUser(redditUserId: number) {
     this.error = '';
-    this.http.get('http://localhost:8080/redditapp-1.0-SNAPSHOT/rest/redditusers/deletereddituser?id=' + redditUserId, {headers: this.headers})
+    this.http.post('http://localhost:8080/redditapp-1.0-SNAPSHOT/rest/redditusers/deletereddituser?id=' + redditUserId, '', {headers: this.headers})
       .subscribe(
         data => {
           if(data['error'] !== undefined) {
