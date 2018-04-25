@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { environment } from '../../environments/environment'
 
 @Component({
   selector: 'app-reddit-account',
@@ -33,7 +34,7 @@ export class RedditAccountComponent implements OnInit {
     this.redditpass = '';
     this.confirmpass = '';
     this.error = '';
-    this.http.get('http://localhost:8080/redditapp-1.0-SNAPSHOT/rest/redditusers/getredditusers', {headers: this.headers})
+    this.http.get(environment.restService + 'redditusers/getredditusers', {headers: this.headers})
       .subscribe(data => {
         this.results = data['redditUsers'];
         for(let i=0;i<this.results.length;i++) {
